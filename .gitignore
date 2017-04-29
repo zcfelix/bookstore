@@ -16,6 +16,10 @@
 *.iml
 *.ipr
 
+### Data Sources ###
+.ideaDataSources
+dataSources
+
 ### NetBeans ###
 nbproject/private/
 build/
@@ -23,3 +27,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
