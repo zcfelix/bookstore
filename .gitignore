@@ -17,8 +17,8 @@
 *.ipr
 
 ### Data Sources ###
-.ideaDataSources
-dataSources
+.ideaDataSources/
+dataSources/
 
 ### NetBeans ###
 nbproject/private/
