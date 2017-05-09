@@ -1,6 +1,7 @@
 package com.thoughtworks.felix.resource;
 
 import com.thoughtworks.felix.domain.User;
+import com.thoughtworks.felix.ResourceAdvice;
 import com.thoughtworks.felix.service.UserService;
 import com.thoughtworks.felix.util.ResourceSupport;
 import com.thoughtworks.felix.util.TestHelper;
@@ -12,9 +13,9 @@ import org.mockito.Mock;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
-
 
 public class UserResourceTest extends ResourceSupport {
 
@@ -24,34 +25,38 @@ public class UserResourceTest extends ResourceSupport {
     @InjectMocks
     private UserResource userResource;
 
-    private User validUser, invalidUser;
+    private User user, illegalUser;
 
     @Before
     public void setUp() {
         RestAssuredMockMvc.standaloneSetup(
                 MockMvcBuilders.standaloneSetup(userResource)
-                        .setHandlerExceptionResolvers(getGlobalExceptionHandlerResolver())
+                        .setControllerAdvice(new ResourceAdvice())
+//                        .setHandlerExceptionResolvers(getGlobalExceptionHandlerResolver())
         );
-        validUser = TestHelper.getValidUser("Felix", 26);
-        invalidUser = TestHelper.getInvalidUser();
-        when(userService.save(any(User.class))).thenReturn(validUser);
+        user = TestHelper.getLegalUser(1L, "Felix", 26);
+        illegalUser = TestHelper.getIllegalUser();
+        when(userService.save(any(User.class))).thenReturn(user);
     }
 
     @Test
-    public void should_create_user_success() throws Exception {
+    public void should_return_201_when_create_user_success() throws Exception {
         given().contentType("application/json")
-                .body(validUser)
+                .body(user)
                 .when().post("/users")
                 .then()
-                .statusCode(201);
+                .contentType("application/json")
+                .statusCode(201)
+                .body("age", equalTo(26));
     }
 
     @Test
-    public void should_return_400_when_name_is_illegal() throws Exception {
+    public void should_return_400_when_create_user_with_illegal_user() throws Exception {
         given().contentType("application/json")
-                .body(invalidUser)
+                .body(illegalUser)
                 .when().post("/users")
                 .then()
+                .contentType("application/json")
                 .statusCode(400);
     }
 }

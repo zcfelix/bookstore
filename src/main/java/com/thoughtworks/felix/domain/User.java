@@ -2,10 +2,8 @@ package com.thoughtworks.felix.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 public class User {
@@ -52,6 +50,11 @@ public class User {
 
     public static class Builder {
         private User user = new User();
+
+        public Builder withId(Long id) {
+            user.setId(id);
+            return this;
+        }
 
         public Builder withName(String name) {
             user.setName(name);

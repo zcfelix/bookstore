@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.service;
+package com.thoughtworks.felix;
 
 import com.thoughtworks.felix.error.ErrorBuilder;
 import com.thoughtworks.felix.error.ErrorResponse;
