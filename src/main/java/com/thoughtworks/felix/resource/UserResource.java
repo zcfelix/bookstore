@@ -29,6 +29,7 @@ public class UserResource {
     @PostMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Resource addUser(@Valid @RequestBody User user, BindingResult result) {
+        System.out.println(user);
         if (result.hasErrors())
             throw new RequestInvalidException(result);
         User saved = userService.save(user);
