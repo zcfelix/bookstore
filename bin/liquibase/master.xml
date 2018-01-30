@@ -2,9 +2,9 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <changeSet author="ybzhou (generated)" id="1493092549801-1">
+    <changeSet author="ybzhou (generated)" changeId="1493092549801-1">
         <createTable tableName="user">
-            <column autoIncrement="true" name="id" type="BIGINT">
+            <column autoIncrement="true" name="changeId" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="age" type="INT">

@@ -14,7 +14,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
-public class UsersApiTest extends ApiUnitTest {
+public class UsersApiUnitText extends ApiUnitTest {
 
     @Mock
     private UserService userService;
