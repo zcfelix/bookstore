@@ -9,8 +9,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @AutoConfigureMockMvc
-public class ApiUnitTest {
-
+public abstract class ApiUnitTest {
     public void setUpApi(Object api) {
         RestAssuredMockMvc.standaloneSetup(
                 MockMvcBuilders.standaloneSetup(api).setControllerAdvice(new ResourceAdvice())

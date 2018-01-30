@@ -2,10 +2,11 @@ package com.thoughtworks.felix.domain.user;
 
 import com.thoughtworks.felix.interfaces.validation.InRange;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -16,22 +17,6 @@ public class User {
     private String name;
     @InRange
     private Integer age;
-
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
-    @Autowired
-    private UserRepository userRepository;
-
-    public User(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public User() {
-        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
-    }
 
     public Long getId() {
         return id;
