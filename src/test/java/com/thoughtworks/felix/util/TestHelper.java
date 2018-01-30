@@ -1,6 +1,6 @@
 package com.thoughtworks.felix.util;
 
-import com.thoughtworks.felix.domain.User;
+import com.thoughtworks.felix.domain.model.User;
 
 public class TestHelper {
     public static User getLegalUser(Long id, String name, Integer age) {

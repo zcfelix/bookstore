@@ -1,9 +1,12 @@
-package com.thoughtworks.felix.domain;
+package com.thoughtworks.felix.domain.model;
 
+import com.thoughtworks.felix.domain.repo.UserRepository;
+import com.thoughtworks.felix.util.InRange;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 public class User {
@@ -12,7 +15,15 @@ public class User {
     private Long id;
     @NotEmpty
     private String name;
+    @InRange
     private Integer age;
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    @Autowired
+    private UserRepository userRepository;
 
     public User(String name, Integer age) {
         this.name = name;
@@ -20,6 +31,7 @@ public class User {
     }
 
     public User() {
+        SpringBeanAutowiringSupport.processInjectionBasedOnCurrentContext(this);
     }
 
     public Long getId() {

@@ -1,39 +1,31 @@
-package com.thoughtworks.felix.resource;
+package com.thoughtworks.felix.web;
 
-import com.thoughtworks.felix.domain.User;
-import com.thoughtworks.felix.ResourceAdvice;
-import com.thoughtworks.felix.service.UserService;
-import com.thoughtworks.felix.util.ResourceSupport;
+import com.thoughtworks.felix.domain.model.User;
+import com.thoughtworks.felix.domain.service.UserService;
 import com.thoughtworks.felix.util.TestHelper;
-import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
-public class UserResourceTest extends ResourceSupport {
+public class UsersApiTest extends ApiUnitTest {
 
     @Mock
     private UserService userService;
 
     @InjectMocks
-    private UserResource userResource;
+    private UsersApi usersApi;
 
     private User user, illegalUser;
 
     @Before
     public void setUp() {
-        RestAssuredMockMvc.standaloneSetup(
-                MockMvcBuilders.standaloneSetup(userResource)
-                        .setControllerAdvice(new ResourceAdvice())
-//                        .setHandlerExceptionResolvers(getGlobalExceptionHandlerResolver())
-        );
+        setUpApi(usersApi);
         user = TestHelper.getLegalUser(1L, "Felix", 26);
         illegalUser = TestHelper.getIllegalUser();
         when(userService.save(any(User.class))).thenReturn(user);

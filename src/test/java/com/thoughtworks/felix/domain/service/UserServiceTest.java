@@ -1,14 +1,12 @@
-package com.thoughtworks.felix.service;
+package com.thoughtworks.felix.domain.service;
 
-import com.thoughtworks.felix.domain.User;
-import com.thoughtworks.felix.repository.UserRepository;
+import com.thoughtworks.felix.domain.model.User;
+import com.thoughtworks.felix.domain.service.UserService;
+import com.thoughtworks.felix.domain.repo.UserRepository;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

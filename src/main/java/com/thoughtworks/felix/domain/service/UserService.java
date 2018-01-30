@@ -1,7 +1,7 @@
-package com.thoughtworks.felix.service;
+package com.thoughtworks.felix.domain.service;
 
-import com.thoughtworks.felix.domain.User;
-import com.thoughtworks.felix.repository.UserRepository;
+import com.thoughtworks.felix.domain.model.User;
+import com.thoughtworks.felix.domain.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

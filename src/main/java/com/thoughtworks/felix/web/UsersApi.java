@@ -1,8 +1,9 @@
-package com.thoughtworks.felix.resource;
+package com.thoughtworks.felix.web;
 
-import com.thoughtworks.felix.domain.User;
+import com.thoughtworks.felix.domain.model.User;
 import com.thoughtworks.felix.exception.RequestInvalidException;
-import com.thoughtworks.felix.service.UserService;
+import com.thoughtworks.felix.domain.service.UserService;
+import com.thoughtworks.felix.util.IdValid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
@@ -17,12 +18,12 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserResource {
+public class UsersApi {
 
     private final UserService userService;
 
     @Autowired
-    public UserResource(UserService userService) {
+    public UsersApi(UserService userService) {
         this.userService = userService;
     }
 
@@ -31,9 +32,21 @@ public class UserResource {
     public Resource addUser(@Valid @RequestBody User user, BindingResult result) {
         System.out.println(user);
         if (result.hasErrors())
-            throw new RequestInvalidException(result);
+                throw new RequestInvalidException(result);
         User saved = userService.save(user);
-        Link link = linkTo(methodOn(UserResource.class).addUser(user, result)).withSelfRel();
+        Link link = linkTo(methodOn(UsersApi.class).addUser(user, result)).withSelfRel();
         return new Resource<>(saved, link);
     }
+
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public String getUser(@PathVariable @IdValid Integer id) {
+        return "cool user";
+    }
+
+//    @PatchMapping(value = "/{id}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public Resource updateUser(@Valid @RequestBody User user, BindingResult result) {
+//
+//    }
 }
