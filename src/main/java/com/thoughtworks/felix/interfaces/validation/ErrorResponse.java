@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.error;
+package com.thoughtworks.felix.interfaces.validation;
 
 import java.util.List;
 

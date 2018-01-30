@@ -1,8 +1,8 @@
 package com.thoughtworks.felix;
 
-import com.thoughtworks.felix.error.ErrorBuilder;
-import com.thoughtworks.felix.error.ErrorResponse;
-import com.thoughtworks.felix.exception.RequestInvalidException;
+import com.thoughtworks.felix.interfaces.validation.ErrorBuilder;
+import com.thoughtworks.felix.interfaces.validation.ErrorResponse;
+import com.thoughtworks.felix.interfaces.validation.RequestInvalidException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;

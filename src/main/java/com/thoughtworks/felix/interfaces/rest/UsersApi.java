@@ -1,9 +1,9 @@
-package com.thoughtworks.felix.web;
+package com.thoughtworks.felix.interfaces.rest;
 
-import com.thoughtworks.felix.domain.model.User;
-import com.thoughtworks.felix.exception.RequestInvalidException;
-import com.thoughtworks.felix.domain.service.UserService;
-import com.thoughtworks.felix.util.IdValid;
+import com.thoughtworks.felix.domain.user.User;
+import com.thoughtworks.felix.interfaces.validation.RequestInvalidException;
+import com.thoughtworks.felix.domain.user.UserService;
+import com.thoughtworks.felix.interfaces.validation.IdValid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;

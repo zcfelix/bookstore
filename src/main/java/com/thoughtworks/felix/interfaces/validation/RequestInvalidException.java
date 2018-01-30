@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.exception;
+package com.thoughtworks.felix.interfaces.validation;
 
 import org.springframework.hateoas.Link;
 import org.springframework.validation.BindingResult;

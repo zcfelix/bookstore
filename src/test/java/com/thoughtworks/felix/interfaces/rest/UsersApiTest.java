@@ -1,8 +1,9 @@
-package com.thoughtworks.felix.web;
+package com.thoughtworks.felix.interfaces.rest;
 
-import com.thoughtworks.felix.domain.model.User;
-import com.thoughtworks.felix.domain.service.UserService;
-import com.thoughtworks.felix.util.TestHelper;
+import com.thoughtworks.felix.domain.user.User;
+import com.thoughtworks.felix.domain.user.UserService;
+import com.thoughtworks.felix.support.ApiUnitTest;
+import com.thoughtworks.felix.support.TestHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

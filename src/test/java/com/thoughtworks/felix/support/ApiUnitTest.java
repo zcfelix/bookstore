@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.web;
+package com.thoughtworks.felix.support;
 
 import com.thoughtworks.felix.ResourceAdvice;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;

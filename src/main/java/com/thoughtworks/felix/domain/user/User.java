@@ -1,7 +1,6 @@
-package com.thoughtworks.felix.domain.model;
+package com.thoughtworks.felix.domain.user;
 
-import com.thoughtworks.felix.domain.repo.UserRepository;
-import com.thoughtworks.felix.util.InRange;
+import com.thoughtworks.felix.interfaces.validation.InRange;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;

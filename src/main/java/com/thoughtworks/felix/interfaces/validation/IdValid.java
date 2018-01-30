@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.util;
+package com.thoughtworks.felix.interfaces.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

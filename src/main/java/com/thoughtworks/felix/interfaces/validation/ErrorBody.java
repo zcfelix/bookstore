@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.error;
+package com.thoughtworks.felix.interfaces.validation;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,15 +1,14 @@
-package com.thoughtworks.felix.util;
+package com.thoughtworks.felix.interfaces.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class AgeRangeValidator implements ConstraintValidator<InRange, Integer>{
-
+public class IdRangeValidator implements ConstraintValidator<IdValid, Integer>{
     private int min;
     private int max;
 
     @Override
-    public void initialize(InRange constraintAnnotation) {
+    public void initialize(IdValid constraintAnnotation) {
         this.min = constraintAnnotation.min();
         this.max = constraintAnnotation.max();
     }

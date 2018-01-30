@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.domain.model;
+package com.thoughtworks.felix.domain.user;
 
 import org.junit.Test;
 
