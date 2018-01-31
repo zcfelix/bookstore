@@ -1,7 +1,13 @@
 package com.thoughtworks.felix.domain.change;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.github.fge.jackson.JsonLoader;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 import static com.thoughtworks.felix.domain.change.ChangeStageCommand.afterStorage;
 import static com.thoughtworks.felix.domain.change.StageEnum.INCLUDED;
@@ -31,5 +37,16 @@ public class ChangeStageTest {
         final Change change = new Change("1", data, new ChangeStage("1", INCLUDED));
         change.updateStage(afterStorage);
     }
-    
+
+    @Test
+    public void should() throws IOException {
+        String fileName = "request/update-change.json";
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        final File file = new File(classLoader.getResource(fileName).getFile());
+        JsonNode jsonNode = JsonLoader.fromFile(file);
+        System.out.println(jsonNode.toString());
+
+        final String content = new String(Files.readAllBytes(file.toPath()));
+        System.out.println(content);
+    }
 }
