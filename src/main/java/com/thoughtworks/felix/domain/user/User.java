@@ -1,6 +1,6 @@
 package com.thoughtworks.felix.domain.user;
 
-import com.thoughtworks.felix.interfaces.validation.InRange;
+import com.thoughtworks.felix.interfaces.validation.Age;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ public class User {
     private Long id;
     @NotEmpty
     private String name;
-    @InRange
+    @Age
     private Integer age;
 
     public Long getId() {

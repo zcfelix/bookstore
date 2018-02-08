@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.interfaces.request;
+package com.thoughtworks.felix.interfaces.payload;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

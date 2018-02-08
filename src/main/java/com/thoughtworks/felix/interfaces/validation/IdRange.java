@@ -7,8 +7,8 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = {AgeRangeValidator.class})
-public @interface InRange {
+@Constraint(validatedBy = {IdRangeValidator.class})
+public @interface IdRange {
     String message() default "Value is out of range";
 
     Class<?>[] groups() default {};

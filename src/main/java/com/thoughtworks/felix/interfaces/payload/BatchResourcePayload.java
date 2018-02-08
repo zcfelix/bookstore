@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.interfaces.request;
+package com.thoughtworks.felix.interfaces.payload;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BatchPayloadResource<T> {
+public class BatchResourcePayload<T> {
     @Valid
     @JsonProperty("data")
     private List<HicResource<T>> resources;

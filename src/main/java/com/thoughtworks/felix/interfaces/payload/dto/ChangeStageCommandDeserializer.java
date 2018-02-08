@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.interfaces.dto;
+package com.thoughtworks.felix.interfaces.payload.dto;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

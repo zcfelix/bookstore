@@ -1,9 +1,8 @@
 package com.thoughtworks.felix.interfaces.rest;
 
 import com.thoughtworks.felix.domain.user.User;
-import com.thoughtworks.felix.interfaces.validation.RequestInvalidException;
 import com.thoughtworks.felix.domain.user.UserService;
-import com.thoughtworks.felix.interfaces.validation.IdValid;
+import com.thoughtworks.felix.interfaces.validation.IdRange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static com.thoughtworks.felix.application.service.BindingResultResolver.parseErrors;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -31,8 +31,9 @@ public class UsersApi {
     @ResponseStatus(HttpStatus.CREATED)
     public Resource addUser(@Valid @RequestBody User user, BindingResult result) {
         System.out.println(user);
-        if (result.hasErrors())
-                throw new RequestInvalidException(result);
+        if (result.hasErrors()) {
+            throw new BadRequestException(parseErrors(result));
+        }
         User saved = userService.save(user);
         Link link = linkTo(methodOn(UsersApi.class).addUser(user, result)).withSelfRel();
         return new Resource<>(saved, link);
@@ -40,7 +41,7 @@ public class UsersApi {
 
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String getUser(@PathVariable @IdValid Integer id) {
+    public String getUser(@PathVariable @IdRange Integer id) {
         return "cool user";
     }
 }
