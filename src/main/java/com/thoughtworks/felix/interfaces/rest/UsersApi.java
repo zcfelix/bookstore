@@ -43,10 +43,4 @@ public class UsersApi {
     public String getUser(@PathVariable @IdValid Integer id) {
         return "cool user";
     }
-
-//    @PatchMapping(value = "/{id}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public Resource updateUser(@Valid @RequestBody User user, BindingResult result) {
-//
-//    }
 }

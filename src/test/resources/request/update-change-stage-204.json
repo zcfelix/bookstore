@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "type": "ChangeStage",
+      "attributes": {
+        "change_id": "test_001",
+        "stage_command": "after_storage"
+      }
+    },
+    {
+      "type": "ChangeStage",
+      "attributes": {
+        "change_id": "test_002",
+        "stage_command": "after_discard"
+      }
+    }
+  ]
+}

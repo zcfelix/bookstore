@@ -26,14 +26,13 @@ public class UserServiceTest2 {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         userService = new UserService(userRepository);
         expected = User.builder().withName("felix").withAge(26).build();
     }
 
     @Test
     public void should_save_user_success() throws Exception {
-//        User saved = userRepository.saveAndFlush(expected);
         User saved = userService.save(expected);
         assertThat(saved.getName(), is(expected.getName()));
         assertThat(saved.getAge(), is(expected.getAge()));

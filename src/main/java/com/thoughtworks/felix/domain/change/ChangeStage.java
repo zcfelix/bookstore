@@ -1,6 +1,6 @@
 package com.thoughtworks.felix.domain.change;
 
-import static com.thoughtworks.felix.domain.TimeHelper.currentTime;
+import static com.thoughtworks.felix.util.Timer.currentTime;
 
 public class ChangeStage {
     private String changeId;

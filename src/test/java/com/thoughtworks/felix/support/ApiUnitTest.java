@@ -1,6 +1,6 @@
 package com.thoughtworks.felix.support;
 
-import com.thoughtworks.felix.ResourceAdvice;
+import com.thoughtworks.felix.ExceptionHandlers;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 public abstract class ApiUnitTest {
     public void setUpApi(Object api) {
         RestAssuredMockMvc.standaloneSetup(
-                MockMvcBuilders.standaloneSetup(api).setControllerAdvice(new ResourceAdvice())
+                MockMvcBuilders.standaloneSetup(api).setControllerAdvice(new ExceptionHandlers())
         );
     }
 }

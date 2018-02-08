@@ -1,8 +1,8 @@
 package com.thoughtworks.felix.domain.change;
 
-import com.thoughtworks.felix.util.Try;
-import com.thoughtworks.felix.util.Try.Failure;
-import com.thoughtworks.felix.util.Try.Success;
+import com.thoughtworks.felix.util.trys.Try;
+import com.thoughtworks.felix.util.trys.Try.Failure;
+import com.thoughtworks.felix.util.trys.Try.Success;
 
 import static com.thoughtworks.felix.domain.change.StageEnum.*;
 import static com.thoughtworks.felix.domain.change.StageTransferErrorCode.CHANGE_STAGE_TRANSFER_ERROR;

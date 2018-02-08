@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.util;
+package com.thoughtworks.felix.util.trys;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;

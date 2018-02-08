@@ -1,4 +1,4 @@
-package com.thoughtworks.felix.util;
+package com.thoughtworks.felix.util.trys;
 
 @FunctionalInterface
 public interface FailableSupplier<T> {

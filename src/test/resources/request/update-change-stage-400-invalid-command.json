@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "type": "ChangeStage",
+      "attributes": {
+        "change_id": "test_001",
+        "stage_command": "invalid_command_001"
+      }
+    },
+    {
+      "type": "ChangeStage",
+      "attributes": {
+        "change_id": "test_002",
+        "stage_command": "invalid_command_002"
+      }
+    }
+  ]
+}

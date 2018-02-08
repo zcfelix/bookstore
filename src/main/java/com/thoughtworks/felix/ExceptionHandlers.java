@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class ResourceAdvice {
+public class ExceptionHandlers {
 
     @ExceptionHandler(value = RequestInvalidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
