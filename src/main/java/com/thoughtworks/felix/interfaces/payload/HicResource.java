@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HicResource<T> {
 
+    @NotNull
     private String type;
 
     private String id;

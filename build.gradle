@@ -42,9 +42,9 @@ liquibase {
 	activities {
 		main {
 			changeLogFile "src/main/resources/liquibase/master.xml"
-			url "jdbc:mysql://localhost:3306/bookstore?autoReconnect=true&useSSL=false"
+			url "jdbc:mysql://localhost:3306/test?autoReconnect=true&useSSL=false"
 			username "root"
-			password "123456"
+			password "root"
 		}
 	}
 }

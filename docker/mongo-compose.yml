@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mongo:latest
+    container_name: mongo_bookstore
+
+    ports:
+      - 27017:27017
+    volumes:
+      - /Users/ybzhou/mongo-docker/data:/data/db
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGODB_USER: user
+      MONGODB_PASS: user
+      MONGODB_DATABASE: bookstore

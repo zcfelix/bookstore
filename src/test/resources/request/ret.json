@@ -1,0 +1,22 @@
+{
+  "errors": [
+    {
+      "status": "400",
+      "code": "INVALID-FIELD",
+      "title": "Invalid command",
+      "detail": "Invalid command: null",
+      "source": {
+        "pointer": "data[0].attributes.stageCommand"
+      }
+    },
+    {
+      "status": "400",
+      "code": "INVALID-FIELD",
+      "title": "Invalid command",
+      "detail": "Invalid command: null",
+      "source": {
+        "pointer": "data[1].attributes.stageCommand"
+      }
+    }
+  ]
+}

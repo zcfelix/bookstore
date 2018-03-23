@@ -7,5 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface UserRepository extends JpaRepository<User, Long> {
+    User save(User user);
     User saveAndFlush(User user);
 }

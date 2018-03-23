@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class Error {
+public class ErrorDTO {
     private String id;
     private List<Link> links;
     private String status;
@@ -20,7 +20,7 @@ public class Error {
     @JsonProperty("source")
     private ErrorSource source;
 
-    public Error() {
+    public ErrorDTO() {
         this.links = new ArrayList<>();
         this.source = new ErrorSource();
     }
@@ -29,7 +29,7 @@ public class Error {
         return id;
     }
 
-    public Error setId(String id) {
+    public ErrorDTO setId(String id) {
         this.id = id;
         return this;
     }
@@ -38,7 +38,7 @@ public class Error {
         return links;
     }
 
-    public Error setLinks(List<Link> links) {
+    public ErrorDTO setLinks(List<Link> links) {
         this.links = links;
         return this;
     }
@@ -47,7 +47,7 @@ public class Error {
         return status;
     }
 
-    public Error setStatus(String status) {
+    public ErrorDTO setStatus(String status) {
         this.status = status;
         return this;
     }
@@ -56,7 +56,7 @@ public class Error {
         return code;
     }
 
-    public Error setCode(String code) {
+    public ErrorDTO setCode(String code) {
         this.code = code;
         return this;
     }
@@ -65,7 +65,7 @@ public class Error {
         return title;
     }
 
-    public Error setTitle(String title) {
+    public ErrorDTO setTitle(String title) {
         this.title = title;
         return this;
     }
@@ -74,7 +74,7 @@ public class Error {
         return detail;
     }
 
-    public Error setDetail(String detail) {
+    public ErrorDTO setDetail(String detail) {
         this.detail = detail;
         return this;
     }
@@ -83,19 +83,19 @@ public class Error {
         return source;
     }
 
-    public Error setSource(ErrorSource source) {
+    public ErrorDTO setSource(ErrorSource source) {
         this.source = source;
         return this;
     }
 
     @JsonIgnore
-    public Error setPointer(String pointer) {
+    public ErrorDTO setPointer(String pointer) {
         this.source.setPointer(pointer);
         return this;
     }
 
     @JsonIgnore
-    public Error setParameter(String parameter) {
+    public ErrorDTO setParameter(String parameter) {
         this.source.setParameter(parameter);
         return this;
     }

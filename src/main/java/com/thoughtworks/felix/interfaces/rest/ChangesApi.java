@@ -1,10 +1,12 @@
 package com.thoughtworks.felix.interfaces.rest;
 
+import com.thoughtworks.felix.domain.change.ChangeRepo;
 import com.thoughtworks.felix.interfaces.payload.dto.ChangeStageDTO;
 import com.thoughtworks.felix.interfaces.payload.BatchResourcePayload;
 import com.thoughtworks.felix.interfaces.payload.HicResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -24,6 +26,9 @@ public class ChangesApi {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ChangesApi.class);
 
+    @Autowired
+    private ChangeRepo repo;
+
     @PutMapping
     public ResponseEntity updateChanges(@Valid @RequestBody BatchResourcePayload<ChangeStageDTO> payload,
                                         BindingResult result,
@@ -33,6 +38,7 @@ public class ChangesApi {
         if (result.hasErrors()) {
             throw new BadRequestException(parseErrors(result));
         }
+
         final List<HicResource<ChangeStageDTO>> resources = payload.getResources();
         return ResponseEntity.noContent().build();
     }

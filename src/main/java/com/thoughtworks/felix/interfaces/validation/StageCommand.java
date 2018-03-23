@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Documented
 @Constraint(validatedBy = {StageCommandValidator.class})
 public @interface StageCommand {
-    String message() default "Invalid command";
+    String message() default "invalid command";
 
     Class<?>[] groups() default {};
 

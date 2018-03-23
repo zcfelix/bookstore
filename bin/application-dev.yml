@@ -4,5 +4,5 @@ server:
 liquibase:
   url: jdbc:mysql://localhost:3306/bookstore?autoReconnect=true&useSSL=false
   user: root
-  password: 123456
+  password: root
   change-log: classpath:liquibase/master.xml

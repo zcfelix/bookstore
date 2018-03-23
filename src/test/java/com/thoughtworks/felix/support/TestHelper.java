@@ -1,12 +1,15 @@
 package com.thoughtworks.felix.support;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fge.jackson.JsonLoader;
 import com.thoughtworks.felix.domain.user.User;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 
 public class TestHelper {
     public static User getLegalUser(Long id, String name, Integer age) {
@@ -30,5 +33,15 @@ public class TestHelper {
 
     public static User getIllegalUser() {
         return new User();
+    }
+
+    public static String toJson(Map map) {
+        final ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(map);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
